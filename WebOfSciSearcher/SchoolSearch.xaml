@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="WebOfSciSearcher.SchoolSearch"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" >
+    <Grid Height="531" Width="974">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="82*"/>
+            <RowDefinition Height="557*"/>
+        </Grid.RowDefinitions>
+        <Label Content="school name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="99" />
+        <Label Content="title file" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Width="99" />
+        <TextBox Name="openFileTextBox" HorizontalAlignment="Left" Height="23" Margin="100,44,0,0" VerticalAlignment="Top" Width="457"/>
+        <Button Content="select file" HorizontalAlignment="Left" Margin="576,46,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" />
+        <DataGrid Name="dt" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" AutoGenerateColumns="True" Margin="22,10,10,10"/>
+        <Button Name="btn" Content="GetData" HorizontalAlignment="Left" Margin="729,13,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="Button_Click_1" />
+        <ComboBox Name="select_school" HorizontalAlignment="Left" Margin="100,14,0,0" VerticalAlignment="Top" Width="305">
+            <ComboBoxItem Content="NIH"/>
+            <ComboBoxItem Content="Southampton"/>
+            <ComboBoxItem Content="University of Liege"/>
+            <ComboBoxItem Content="University of Reading"/>
+            <ComboBoxItem Content="University of Edinburgh"/>
+            <ComboBoxItem Content="University of Bern"/>
+            <ComboBoxItem Content="University of Bristol"/>
+            <ComboBoxItem Content="University of Cambridge"/>
+            <ComboBoxItem Content="University of Oxford"/>
+            <ComboBoxItem Content="Imperial College London"/>
+            <ComboBoxItem Content="University of St Andrews"/>
+            <ComboBoxItem Content="University of Exeter"/>
+            <ComboBoxItem Content="Loughborough University"/>
+            <ComboBoxItem Content="University of Leeds"/>
+            <ComboBoxItem Content="University of Sheffield"/>
+            <ComboBoxItem Content="University of Sussex"/>
+            <ComboBoxItem Content="University of Kent"/>
+            <ComboBoxItem Content="University of Leicester"/>
+            <ComboBoxItem Content="University of Dundee"/>
+            <ComboBoxItem Content="University of Stirling"/>
+            <ComboBoxItem Content="University of Birmingham"/>
+            <ComboBoxItem Content="Swansea University"/>
+            <ComboBoxItem Content="University College London"/>
+        </ComboBox>
+        <TextBox Name="thCount" HorizontalAlignment="Left" Height="21" Margin="675,14,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="49" Grid.Column="1"/>
+        <Label Name="proc" Content="0/0" HorizontalAlignment="Left" Margin="809,13,0,0" VerticalAlignment="Top" Width="155" Height="52"/>
+        <Button Name ="fresh" Content="Refresh" HorizontalAlignment="Left" Margin="729,40,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="Button_Click_2" RenderTransformOrigin="0.481,0.545" Grid.Column="1"/>
+    </Grid>
+</UserControl>

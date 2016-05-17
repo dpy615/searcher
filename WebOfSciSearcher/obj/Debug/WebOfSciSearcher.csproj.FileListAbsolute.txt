@@ -1,0 +1,120 @@
+D:\VS2013\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebOfSciSearcher.exe.config
+D:\VS2013\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebOfSciSearcher.exe
+D:\VS2013\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebOfSciSearcher.pdb
+D:\VS2013\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.csprojResolveAssemblyReference.cache
+D:\VS2013\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\MainWindow.baml
+D:\VS2013\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\MainWindow.g.cs
+D:\VS2013\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\App.g.cs
+D:\VS2013\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher_MarkupCompile.cache
+D:\VS2013\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.g.resources
+D:\VS2013\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.Properties.Resources.resources
+D:\VS2013\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.csproj.GenerateResource.Cache
+D:\VS2013\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.exe
+D:\VS2013\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.pdb
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebOfSciSearcher.exe.config
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.exe
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.pdb
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebOfSciSearcher.exe
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebOfSciSearcher.pdb
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.csprojResolveAssemblyReference.cache
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\MainWindow.baml
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\MainWindow.g.cs
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\App.g.cs
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher_MarkupCompile.cache
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.g.resources
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.Properties.Resources.resources
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.csproj.GenerateResource.Cache
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\MySearcher.pdb
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebSearcher.pdb
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WOSSearch.baml
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WOSSearch.g.cs
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\SchoolSearch.baml
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\SchoolSearch.g.cs
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher_MarkupCompile.lref
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\wos.baml
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\wos.g.cs
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\Analyse.baml
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\Analyse.g.cs
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\MySearcher.dll
+E:\srcs\Visual Studio 2013\Projects\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebSearcher.dll
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebOfSciSearcher.exe.config
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.exe
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.pdb
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebOfSciSearcher.exe
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebOfSciSearcher.pdb
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\MySearcher.dll
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebSearcher.dll
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\MySearcher.pdb
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebSearcher.pdb
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\Analyse.baml
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\MainWindow.baml
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\SchoolSearch.baml
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\wos.baml
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\Analyse.g.cs
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\MainWindow.g.cs
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\SchoolSearch.g.cs
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\wos.g.cs
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WOSSearch.g.cs
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\App.g.cs
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher_MarkupCompile.cache
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher_MarkupCompile.lref
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WOSSearch.baml
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.g.resources
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.Properties.Resources.resources
+C:\Users\Administrator\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.csproj.GenerateResource.Cache
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebOfSciSearcher.exe.config
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebOfSciSearcher.exe
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebOfSciSearcher.pdb
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\MySearcher.exe
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebSearcher.dll
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\MySearcher.pdb
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebSearcher.pdb
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.csprojResolveAssemblyReference.cache
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\Analyse.baml
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\MainWindow.baml
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\SchoolSearch.baml
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\wos.baml
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\Analyse.g.cs
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\MainWindow.g.cs
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\SchoolSearch.g.cs
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\wos.g.cs
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WOSSearch.g.cs
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\App.g.cs
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher_MarkupCompile.cache
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher_MarkupCompile.lref
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WOSSearch.baml
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.g.resources
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.Properties.Resources.resources
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.csproj.GenerateResource.Cache
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.exe
+C:\Users\sui\Desktop\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.pdb
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebOfSciSearcher.exe.config
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.exe
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.pdb
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebOfSciSearcher.exe
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebOfSciSearcher.pdb
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\Analyse.baml
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\MainWindow.baml
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\SchoolSearch.baml
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\wos.baml
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\Analyse.g.cs
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\MainWindow.g.cs
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\SchoolSearch.g.cs
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\wos.g.cs
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WOSSearch.g.cs
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\App.g.cs
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher_MarkupCompile.cache
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher_MarkupCompile.lref
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WOSSearch.baml
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.g.resources
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.Properties.Resources.resources
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.csproj.GenerateResource.Cache
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.csprojResolveAssemblyReference.cache
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\bin\Debug\WebOfSciSearcher.exe.config
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.exe
+E:\yan\WebOfSciSearcher\WebOfSciSearcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.pdb
