@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using WebOfSciSearcher;
 
 namespace WebSearcher {
     public abstract class Searcher {
@@ -16,6 +17,7 @@ namespace WebSearcher {
         public double all = 0;
         public bool isRun = true;
         public string fileName = "";
+        public Config config;
 
         public int yes = 0;
         public int no = 0;

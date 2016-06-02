@@ -1,0 +1,7 @@
+F:\Documents\GitHub\searcher\SomallTest\bin\Debug\SomallTest.exe
+F:\Documents\GitHub\searcher\SomallTest\bin\Debug\SomallTest.pdb
+F:\Documents\GitHub\searcher\SomallTest\obj\Debug\SomallTest.csprojResolveAssemblyReference.cache
+F:\Documents\GitHub\searcher\SomallTest\obj\Debug\SomallTest.exe
+F:\Documents\GitHub\searcher\SomallTest\obj\Debug\SomallTest.pdb
+F:\Documents\GitHub\searcher\SomallTest\bin\Debug\WebOfSciSearcher.exe
+F:\Documents\GitHub\searcher\SomallTest\bin\Debug\WebOfSciSearcher.pdb
