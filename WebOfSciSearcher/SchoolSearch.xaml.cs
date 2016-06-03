@@ -53,55 +53,61 @@ namespace WebOfSciSearcher {
         }
 
         private bool initSearcher(string text) {
-            if (text == "NIH") {
-                searcher = new NIH();
-            } else if (text == "University of Liege") {
-                searcher = new UniversityOfLiege();
-            } else if (text == "University of Reading") {
-                searcher = new UniversityOfReading();
-            } else if (text == "University of Edinburgh") {
-                searcher = new UniversityOfEdinburgh();
-            } else if (text == "University of Bern") {
-                searcher = new UniversityOfBern();
-            } else if (text == "University of Bristol") {
-                searcher = new UniversityOfBristol();
-            } else if (text == "University of Cambridge") {
-                searcher = new UniversityOfCambridge();
-            } else if (text == "University of Oxford") {
-                searcher = new UniversityOfOxford();
-            } else if (text == "Southampton") {
-                searcher = new Southampton();
-            } else if (text == "Imperial College London") {
-                searcher = new ImperialCollegeLondon();
-            } else if (text == "University of St Andrews") {
-                searcher = new UniversityOfStAndrews();
-            } else if (text == "University of Exeter") {
-                searcher = new UniversityOfExeter();
-            } else if (text == "Loughborough University") {
-                searcher = new LoughboroughUniversity();
-            } else if (text == "University of Leeds") {
-                searcher = new UniversityOfLeeds();
-            } else if (text == "University of Sheffield") {
-                searcher = new UniversityOfLeeds();
-            } else if (text == "University of Sussex") {
-                searcher = new UniversityOfSussex();
-            } else if (text == "University of Kent") {
-                searcher = new UniversityOfKent();
-            } else if (text == "University of Leicester") {
-                searcher = new UniversityOfLeicester();
-            } else if (text == "University of Dundee") {
-                searcher = new UniversityOfDundee();
-            } else if (text == "Swansea University") {
-                searcher = new SwanseaUniversity();
-            } else if (text == "University of Stirling") {
-                searcher = new UniversityOfStirling();
-            } else if (text == "University of Birmingham") {
-                searcher = new UniversityOfBirmingham();
-            } else if (text == "University College London") {
-                searcher = new UniversityCollegeLondon();
-            } else {
+            searcher = new WebSearcher.SchoolSearchCommon();
+            try {
+                searcher.config = Utils.GetConfig()[text];
+            } catch (Exception) {
                 return false;
             }
+            //if (text == "NIH") {
+            //    searcher = new NIH();
+            //} else if (text == "University of Liege") {
+            //    searcher = new UniversityOfLiege();
+            //} else if (text == "University of Reading") {
+            //    searcher = new UniversityOfReading();
+            //} else if (text == "University of Edinburgh") {
+            //    searcher = new UniversityOfEdinburgh();
+            //} else if (text == "University of Bern") {
+            //    searcher = new UniversityOfBern();
+            //} else if (text == "University of Bristol") {
+            //    searcher = new UniversityOfBristol();
+            //} else if (text == "University of Cambridge") {
+            //    searcher = new UniversityOfCambridge();
+            //} else if (text == "University of Oxford") {
+            //    searcher = new UniversityOfOxford();
+            //} else if (text == "Southampton") {
+            //    searcher = new Southampton();
+            //} else if (text == "Imperial College London") {
+            //    searcher = new ImperialCollegeLondon();
+            //} else if (text == "University of St Andrews") {
+            //    searcher = new UniversityOfStAndrews();
+            //} else if (text == "University of Exeter") {
+            //    searcher = new UniversityOfExeter();
+            //} else if (text == "Loughborough University") {
+            //    searcher = new LoughboroughUniversity();
+            //} else if (text == "University of Leeds") {
+            //    searcher = new UniversityOfLeeds();
+            //} else if (text == "University of Sheffield") {
+            //    searcher = new UniversityOfLeeds();
+            //} else if (text == "University of Sussex") {
+            //    searcher = new UniversityOfSussex();
+            //} else if (text == "University of Kent") {
+            //    searcher = new UniversityOfKent();
+            //} else if (text == "University of Leicester") {
+            //    searcher = new UniversityOfLeicester();
+            //} else if (text == "University of Dundee") {
+            //    searcher = new UniversityOfDundee();
+            //} else if (text == "Swansea University") {
+            //    searcher = new SwanseaUniversity();
+            //} else if (text == "University of Stirling") {
+            //    searcher = new UniversityOfStirling();
+            //} else if (text == "University of Birmingham") {
+            //    searcher = new UniversityOfBirmingham();
+            //} else if (text == "University College London") {
+            //    searcher = new UniversityCollegeLondon();
+            //} else {
+            //    return false;
+            //}
             return true;
         }
 

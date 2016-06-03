@@ -140,4 +140,3 @@ F:\Documents\GitHub\searcher\WebOfSciSearcher\obj\Debug\WOSSearch.baml
 F:\Documents\GitHub\searcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.g.resources
 F:\Documents\GitHub\searcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.Properties.Resources.resources
 F:\Documents\GitHub\searcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.csproj.GenerateResource.Cache
-F:\Documents\GitHub\searcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.csprojResolveAssemblyReference.cache
