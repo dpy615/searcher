@@ -3,29 +3,34 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WebSearcher;
 
 namespace WebOfSciSearcher {
     /// <summary>
     /// Interaction logic for SchoolSearch.xaml
     /// </summary>
-    public partial class SchoolSearch : UserControl {
+    public partial class SchoolSearch : UserControl, IDisposable {
+        public void Dispose() {
+            if (dtsour != null) {
+                dtsour.Dispose();
+                dtsour = null;
+            }
+            if (t != null) {
+                t.Dispose();
+                t = null;
+            }
+        }
         public SchoolSearch() {
             InitializeComponent();
+            configs = Utils.GetConfig();
+            foreach (var schoolName in configs.Keys) {
+                select_school.Items.Add(schoolName);
+            }
         }
         Searcher searcher;
+        Dictionary<string,Config> configs = new Dictionary<string,Config>();
         DataTable dtsour = new DataTable();
         System.Timers.Timer t = new System.Timers.Timer();
 
@@ -49,13 +54,13 @@ namespace WebOfSciSearcher {
             t.Interval = 1000;
             t.Elapsed += new System.Timers.ElapsedEventHandler(updateProc);
             t.Start();
-            btn.IsEnabled = false;
+            //btn.IsEnabled = false;
         }
 
         private bool initSearcher(string text) {
             searcher = new WebSearcher.SchoolSearchCommon();
             try {
-                searcher.config = Utils.GetConfig()[text];
+                searcher.config = configs[text];
             } catch (Exception) {
                 return false;
             }

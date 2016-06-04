@@ -5,3 +5,10 @@ F:\Documents\GitHub\searcher\SomallTest\obj\Debug\SomallTest.exe
 F:\Documents\GitHub\searcher\SomallTest\obj\Debug\SomallTest.pdb
 F:\Documents\GitHub\searcher\SomallTest\bin\Debug\WebOfSciSearcher.exe
 F:\Documents\GitHub\searcher\SomallTest\bin\Debug\WebOfSciSearcher.pdb
+E:\git\searcher\SomallTest\obj\Debug\SomallTest.exe
+E:\git\searcher\SomallTest\obj\Debug\SomallTest.pdb
+E:\git\searcher\SomallTest\bin\Debug\SomallTest.exe
+E:\git\searcher\SomallTest\bin\Debug\SomallTest.pdb
+E:\git\searcher\SomallTest\bin\Debug\WebOfSciSearcher.exe
+E:\git\searcher\SomallTest\bin\Debug\WebOfSciSearcher.pdb
+E:\git\searcher\SomallTest\obj\Debug\SomallTest.csprojResolveAssemblyReference.cache

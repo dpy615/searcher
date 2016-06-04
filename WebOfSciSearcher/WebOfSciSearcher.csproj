@@ -69,32 +69,8 @@
     </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="WebSearcher\SchoolSearchCommon.cs" />
-    <Compile Include="WebSearcher\SwanseaUniversity.cs" />
-    <Compile Include="WebSearcher\UniversityCollegeLondon.cs" />
-    <Compile Include="WebSearcher\UniversityOfKent.cs" />
-    <Compile Include="WebSearcher\UniversityOfDundee.cs" />
-    <Compile Include="WebSearcher\UniversityOfNottingham.cs" />
-    <Compile Include="WebSearcher\UniversityOfLeicester.cs" />
-    <Compile Include="WebSearcher\UniversityOfBirmingham.cs" />
-    <Compile Include="WebSearcher\UniversityOfSussex.cs" />
-    <Compile Include="WebSearcher\UniversityOfStirling.cs" />
-    <Compile Include="WebSearcher\UniversityOfLeeds.cs" />
-    <Compile Include="WebSearcher\LoughboroughUniversity.cs" />
-    <Compile Include="WebSearcher\UniversityOfExeter.cs" />
-    <Compile Include="WebSearcher\UniversityOfStAndrews.cs" />
-    <Compile Include="WebSearcher\NIH.cs" />
     <Compile Include="WebSearcher\Searcher.cs" />
     <Compile Include="WebSearcher\Southampton.cs" />
-    <Compile Include="WebSearcher\ImperialCollegeLondon.cs" />
-    <Compile Include="WebSearcher\UniversityOfBern.cs" />
-    <Compile Include="WebSearcher\UniversityOfBristol.cs" />
-    <Compile Include="WebSearcher\UniversityOfCambridge.cs" />
-    <Compile Include="WebSearcher\UniversityOfEdinburgh.cs" />
-    <Compile Include="WebSearcher\UniversityOfGlasgow.cs" />
-    <Compile Include="WebSearcher\UniversityOfLiege.cs" />
-    <Compile Include="WebSearcher\UniversityOfOxford.cs" />
-    <Compile Include="WebSearcher\UniversityOfReading.cs" />
-    <Compile Include="WebSearcher\UniversityOfWarwick.cs" />
     <Compile Include="wos.xaml.cs">
       <DependentUpon>wos.xaml</DependentUpon>
     </Compile>

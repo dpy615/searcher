@@ -21,7 +21,7 @@ namespace WebOfSciSearcher {
             try {
                 using (OleDbConnection conn = new OleDbConnection(connStr)) {
                     conn.Open();
-                    using (OleDbDataAdapter adpater = new OleDbDataAdapter("select * from schoolConfig", conn)) {
+                    using (OleDbDataAdapter adpater = new OleDbDataAdapter("select * from schoolConfig order by schoolIndex", conn)) {
                         adpater.Fill(dtReturn);
                     }
                 }
@@ -45,10 +45,23 @@ namespace WebOfSciSearcher {
                     config.schoolIndex = int.Parse(row["schoolIndex"].ToString());
                     config.schoolName = row["schoolName"].ToString().Trim();
                     config.url1 = row["url1"].ToString().Trim();
+                    config.url2 = row["url2"].ToString().Trim();
                     config.titleRegex = row["titleRegex"].ToString().Trim();
                     config.titleLeft = int.Parse(row["titleLeft"].ToString());
                     config.titleRight = int.Parse(row["titleRight"].ToString());
-                    config.contentReplace = row["contentReplace"].ToString().Trim();
+                    string[] replaces = row["contentReplace"].ToString().Split('|');
+                    config.contentReplace = new List<string[]>();
+                    for (int i = 0; i < replaces.Length; i++) {
+                        if (!string.IsNullOrEmpty(replaces[0])) {
+                            config.contentReplace.Add(new string[] { replaces[i].Split(',')[0], replaces[i].Split(',')[1].Replace("空格"," ") });
+                        }
+                    }
+
+                    config.matchGate = float.Parse(row["matchGate"].ToString());
+                    config.httpWeb = row["httpWeb"].ToString();
+                    config.articleRegex = row["articleRegex"].ToString();
+                    config.downloadRegex = row["downloadRegex"].ToString();
+
                     dicReturn.Add(config.schoolName, config);
                 }
             }
@@ -64,10 +77,9 @@ namespace WebOfSciSearcher {
         public static double MatchValue(string str1, string str2) {
             double matchValue = 0;
 
-            List<string> strArray1 = str1.ToLower().Split(' ').ToList();
-            List<string> strArray2 = str2.ToLower().Split(' ').ToList();
-
-
+            List<string> strArray1 = ToList(str1);
+            List<string> strArray2 = ToList(str2);
+            
             foreach (var item in strArray1) {
                 if (strArray2.Contains(item)) {
                     strArray2.Remove(item);
@@ -76,8 +88,8 @@ namespace WebOfSciSearcher {
                 }
             }
 
-            strArray1 = str1.ToLower().Split(' ').ToList();
-            strArray2 = str2.ToLower().Split(' ').ToList();
+            strArray1 = ToList(str1);
+            strArray2 = ToList(str2);
             foreach (var item in strArray2) {
                 if (strArray1.Contains(item)) {
                     strArray1.Remove(item);
@@ -86,11 +98,20 @@ namespace WebOfSciSearcher {
                 }
             }
 
-            strArray1 = str1.ToLower().Split(' ').ToList();
-            strArray2 = str2.ToLower().Split(' ').ToList();
+            strArray1 = ToList(str1);
+            strArray2 = ToList(str2);
             matchValue = matchValue / (strArray1.Count + strArray2.Count);
 
             return Math.Round(matchValue, 2);
+        }
+
+        private static List<string> ToList(string str1) {
+            List<string> lReturn = str1.ToLower().Split(' ').ToList();
+            int count = lReturn.Count;
+            for (int i = 0; i < count; i++) {
+                lReturn.Remove("");
+            }
+            return lReturn;
         }
 
     }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace WebOfSciSearcher {
     public class Config {
@@ -13,6 +9,11 @@ namespace WebOfSciSearcher {
         public string titleRegex;
         public int titleLeft;
         public int titleRight;
-        public string contentReplace;
+        public List<string[]> contentReplace;
+        public string articleRegex;
+        public string downloadRegex;
+        public float matchGate = 0.6f;
+        public string httpWeb;
+
     }
 }

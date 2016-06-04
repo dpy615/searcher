@@ -16,7 +16,7 @@
         <DataGrid Name="dt" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" AutoGenerateColumns="True" Margin="22,10,10,10"/>
         <Button Name="btn" Content="GetData" HorizontalAlignment="Left" Margin="729,13,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="Button_Click_1" />
         <ComboBox Name="select_school" HorizontalAlignment="Left" Margin="100,14,0,0" VerticalAlignment="Top" Width="305">
-            <ComboBoxItem Content="NIH"/>
+            <!--<ComboBoxItem Content="NIH"/>
             <ComboBoxItem Content="Southampton"/>
             <ComboBoxItem Content="University of Liege"/>
             <ComboBoxItem Content="University of Reading"/>
@@ -38,7 +38,7 @@
             <ComboBoxItem Content="University of Stirling"/>
             <ComboBoxItem Content="University of Birmingham"/>
             <ComboBoxItem Content="Swansea University"/>
-            <ComboBoxItem Content="University College London"/>
+            <ComboBoxItem Content="University College London"/>-->
         </ComboBox>
         <TextBox Name="thCount" HorizontalAlignment="Left" Height="21" Margin="675,14,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="49" Grid.Column="1"/>
         <Label Name="proc" Content="0/0" HorizontalAlignment="Left" Margin="809,13,0,0" VerticalAlignment="Top" Width="155" Height="52"/>
