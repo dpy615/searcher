@@ -38,6 +38,9 @@
     <ApplicationIcon>{A38952FF-975D-4E95-830B-125E66AE9AC2}.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NPOI">
+      <HintPath>DllImport\NPOI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />

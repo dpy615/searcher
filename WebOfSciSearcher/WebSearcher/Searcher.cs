@@ -1,8 +1,11 @@
-﻿using System;
+﻿using NPOI.HSSF.UserModel;
+using NPOI.SS.UserModel;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -26,6 +29,16 @@ namespace WebSearcher {
 
         public void GetData(int thCount, string fileName) {
             this.fileName = fileName;
+
+            CheckCol("isIn");
+            CheckCol("matchTitle");
+            CheckCol("upTime");
+            CheckCol("download0");
+            CheckCol("download1");
+            CheckCol("download2");
+            CheckCol("download3");
+            CheckCol("download4");
+
             if (thCount < 1) return;
             string strConnection = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source =" + fileName + ";Extended Properties = Excel 8.0";
             OleDbConnection oleConnection = new OleDbConnection(strConnection);
@@ -53,5 +66,32 @@ namespace WebSearcher {
         }
 
         public abstract void GetRes(object o);
+
+        public void CheckCol(string colName) {
+            string strConnection = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source =" + fileName + ";Extended Properties = Excel 8.0";
+            OleDbConnection oleConnection = new OleDbConnection(strConnection);
+            oleConnection.Open();
+            try {
+                OleDbDataAdapter adapter = new OleDbDataAdapter("select " + colName + " from [Sheet1$]", oleConnection);
+                adapter.Fill(new DataTable());
+            } catch (Exception e) {
+                oleConnection.Close();
+                var fs = new FileStream(fileName, FileMode.Open);
+                HSSFWorkbook workBook = new HSSFWorkbook(fs);
+                ISheet sheet1 = workBook.GetSheet("Sheet1");
+                IRow row = sheet1.GetRow(0);
+                row.CreateCell(row.Cells.Count).SetCellValue(colName);
+
+                var fs1 = new FileStream(fileName, FileMode.Open);
+                workBook.Write(fs1);
+                fs1.Close();
+            } finally {
+                try {
+                    oleConnection.Close();
+                } catch (Exception) {
+                }
+            }
+
+        }
     }
 }

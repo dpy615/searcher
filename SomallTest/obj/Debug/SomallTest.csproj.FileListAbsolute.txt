@@ -12,3 +12,5 @@ E:\git\searcher\SomallTest\bin\Debug\SomallTest.pdb
 E:\git\searcher\SomallTest\bin\Debug\WebOfSciSearcher.exe
 E:\git\searcher\SomallTest\bin\Debug\WebOfSciSearcher.pdb
 E:\git\searcher\SomallTest\obj\Debug\SomallTest.csprojResolveAssemblyReference.cache
+F:\Documents\GitHub\searcher\SomallTest\bin\Debug\NPOI.dll
+F:\Documents\GitHub\searcher\SomallTest\bin\Debug\Ionic.Zip.dll
