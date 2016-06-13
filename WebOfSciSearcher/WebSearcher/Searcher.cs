@@ -33,11 +33,13 @@ namespace WebSearcher {
             CheckCol("isIn");
             CheckCol("matchTitle");
             CheckCol("upTime");
+            CheckCol("downloadType");
             CheckCol("download0");
             CheckCol("download1");
             CheckCol("download2");
             CheckCol("download3");
             CheckCol("download4");
+            
 
             if (thCount < 1) return;
             string strConnection = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source =" + fileName + ";Extended Properties = Excel 8.0";

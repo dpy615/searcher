@@ -136,8 +136,10 @@ namespace MySearcher {
 
         public void Search(string i) {
             string type = "OG";
-            if(i == "1"){
+            if (i == "1") {
                 type = "FO";
+            } else if (i == "2") {
+                type = "AD";
             }
             location = "http://apps.webofknowledge.com/WOS_GeneralSearch.do";
             request = (HttpWebRequest)HttpWebRequest.Create(location);
@@ -161,15 +163,30 @@ namespace MySearcher {
             request.CookieContainer.Add(new Uri(cookieUri), new Cookie("JSESSIONID", jsesionid));
 
 
-            body = "fieldCount=3&action=search&product=WOS&search_mode=GeneralSearch&SID=" +
+            //       body = "fieldCount=3&action=search&product=WOS&search_mode=GeneralSearch&SID=" +
+            //uriParams["SID"] +
+            //"&max_field_count=25&max_field_notice=%E6%B3%A8%E6%84%8F%3A%20%E6%97%A0%E6%B3%95%E6%B7%BB%E5%8A%A0%E5%8F%A6%E4%B8%80%E5%AD%97%E6%AE%B5%E3%80%82&input_invalid_notice=%E6%A3%80%E7%B4%A2%E9%94%99%E8%AF%AF%3A%20%E8%AF%B7%E8%BE%93%E5%85%A5%E6%A3%80%E7%B4%A2%E8%AF%8D%E3%80%82" +
+            //"&exp_notice=%E6%A3%80%E7%B4%A2%E9%94%99%E8%AF%AF%3A%20%E4%B8%93%E5%88%A9%E6%A3%80%E7%B4%A2%E8%AF%8D%E5%8F%AF%E5%9C%A8%E5%A4%9A%E4%B8%AA%E5%AE%B6%E6%97%8F%E4%B8%AD%E6%89%BE%E5%88%B0%20(&+" +
+            //"input_invalid_notice_limits=%20%3Cbr%2F%3E%E6%B3%A8%3A%20%E6%BB%9A%E5%8A%A8%E6%A1%86%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%9A%84%E5%AD%97%E6%AE%B5%E5%BF%85%E9%A1%BB%E8%87%B3%E5%B0%91%E4%B8%8E%E4%B8%80%E4%B8%AA%E5%85%B6%E4%BB%96%E6%A3%80%E7%B4%A2%E5%AD%97%E6%AE%B5%E7%9B%B8%E7%BB%84%E9%85%8D%E3%80%82" +
+            //"&sa_params=WOS%7C%7C" + uriParams["SID"] + "%7Chttp%3A%2F%2Fapps.webofknowledge.com%7C'&formUpdated=true&" +
+            //"value(input1)=" + university + "&value(select1)="+type+"&value(hidInput1)=&" + "value(bool_1_2)=AND&" +
+            //"value(input2)=" + searchYear + "&value(select2)=PY&value(hidInput2)=&" + "value(bool_2_3)=AND&" +
+            //"value(input3)=Article&value(select3)=DT&value(hidInput3)=&" +
+            //"limitStatus=collapsed&ss_lemmatization=On&ss_spellchecking=Suggest&SinceLastVisit_UTC=&SinceLastVisit_DATE=&period=Range%20Selection&range=ALL&startYear=1864&endYear=2016&update_back2search_link_param=yes&ssStatus=display%3Anone&ss_showsuggestions=ON&ss_query_language=auto&ss_numDefaultGeneralSearchFields=1&rs_sort_by=PY.D%3BLD.D%3BSO.A%3BVL.D%3BPG.A%3BAU.A&";
+
+            //查询文献与综述  单位是地址
+            body = "fieldCount=6&action=search&product=WOS&search_mode=GeneralSearch&SID=" +
      uriParams["SID"] +
      "&max_field_count=25&max_field_notice=%E6%B3%A8%E6%84%8F%3A%20%E6%97%A0%E6%B3%95%E6%B7%BB%E5%8A%A0%E5%8F%A6%E4%B8%80%E5%AD%97%E6%AE%B5%E3%80%82&input_invalid_notice=%E6%A3%80%E7%B4%A2%E9%94%99%E8%AF%AF%3A%20%E8%AF%B7%E8%BE%93%E5%85%A5%E6%A3%80%E7%B4%A2%E8%AF%8D%E3%80%82" +
      "&exp_notice=%E6%A3%80%E7%B4%A2%E9%94%99%E8%AF%AF%3A%20%E4%B8%93%E5%88%A9%E6%A3%80%E7%B4%A2%E8%AF%8D%E5%8F%AF%E5%9C%A8%E5%A4%9A%E4%B8%AA%E5%AE%B6%E6%97%8F%E4%B8%AD%E6%89%BE%E5%88%B0%20(&+" +
      "input_invalid_notice_limits=%20%3Cbr%2F%3E%E6%B3%A8%3A%20%E6%BB%9A%E5%8A%A8%E6%A1%86%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%9A%84%E5%AD%97%E6%AE%B5%E5%BF%85%E9%A1%BB%E8%87%B3%E5%B0%91%E4%B8%8E%E4%B8%80%E4%B8%AA%E5%85%B6%E4%BB%96%E6%A3%80%E7%B4%A2%E5%AD%97%E6%AE%B5%E7%9B%B8%E7%BB%84%E9%85%8D%E3%80%82" +
      "&sa_params=WOS%7C%7C" + uriParams["SID"] + "%7Chttp%3A%2F%2Fapps.webofknowledge.com%7C'&formUpdated=true&" +
-     "value(input1)=" + university + "&value(select1)="+type+"&value(hidInput1)=&" + "value(bool_1_2)=AND&" +
+     "value(input1)=" + university + "&value(select1)=" + type + "&value(hidInput1)=&" + "value(bool_1_2)=AND&" +
      "value(input2)=" + searchYear + "&value(select2)=PY&value(hidInput2)=&" + "value(bool_2_3)=AND&" +
-     "value(input3)=Article&value(select3)=DT&value(hidInput3)=&" +
+     "value(input3)=Article&value(select3)=DT&value(hidInput3)=&" + "value(bool_3_4)=OR&" +
+      "value(input4)=" + university + "&value(select4)=" + type + "&value(hidInput4)=&" + "value(bool_4_5)=AND&" +
+     "value(input5)=" + searchYear + "&value(select5)=PY&value(hidInput5)=&" + "value(bool_5_6)=AND&" +
+     "value(input6)=Review&value(select6)=DT&value(hidInput6)=&" +
      "limitStatus=collapsed&ss_lemmatization=On&ss_spellchecking=Suggest&SinceLastVisit_UTC=&SinceLastVisit_DATE=&period=Range%20Selection&range=ALL&startYear=1864&endYear=2016&update_back2search_link_param=yes&ssStatus=display%3Anone&ss_showsuggestions=ON&ss_query_language=auto&ss_numDefaultGeneralSearchFields=1&rs_sort_by=PY.D%3BLD.D%3BSO.A%3BVL.D%3BPG.A%3BAU.A&";
 
 
