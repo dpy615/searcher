@@ -22,6 +22,8 @@ namespace MySearcher {
         string university;
         string searchYear = "2013-2014";
 
+        string isOpen = "";
+
         public HttpClient(string university, string searchYear) {
             this.university = university.Replace(" ", "%20");
             this.searchYear = searchYear;
@@ -135,8 +137,8 @@ namespace MySearcher {
         }
 
         public void Search(string i) {
-            string type = "OG";
-            if (i == "1") {
+            string type = "OG";//机构扩展
+            if (i == "1") {//基金
                 type = "FO";
             } else if (i == "2") {
                 type = "AD";
@@ -196,6 +198,35 @@ namespace MySearcher {
             request.GetRequestStream().Write(btbody, 0, btbody.Length);
             request.GetRequestStream().Close();
             response = (HttpWebResponse)request.GetResponse();
+
+
+
+
+            if (!string.IsNullOrEmpty(isOpen)) {
+                location = "http://apps.webofknowledge.com/Refine.do";
+                request = (HttpWebRequest)HttpWebRequest.Create(location);
+                request.Method = "POST";
+                request.ContentType = "application/x-www-form-urlencoded";
+                request.Referer = "http://apps.webofknowledge.com/WOS_GeneralSearch_input.do?product=WOS&search_mode=GeneralSearch&SID=" + uriParams["SID"] + "&search_mode=GeneralSearch&prID=";
+                request.Headers.Add("Origin", "http://apps.webofknowledge.com");
+                request.Accept = "*/*";
+                request.UserAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36";
+                request.Headers.Add("Accept-Language", "zh-CN,zh;q=0.8");
+                request.Headers.Add("Accept-Encoding", "gzip,deflate,sdch");
+                request.Host = "apps.webofknowledge.com";
+                request.Headers.Add("Conection", "Keep-Alive");
+                request.Headers.Add("Cache-Control", "max-age=0");
+                request.AllowAutoRedirect = false;
+                request.CookieContainer = new CookieContainer();
+                jsesionid = response.Headers.Get("Set-Cookie").ToString().Split(';')[0].Split('=')[1];
+                request.CookieContainer.Add(new Uri(cookieUri), new Cookie("SID", "\"" + uriParams["SID"] + "\""));
+                request.CookieContainer.Add(new Uri(cookieUri), new Cookie("CUSTOMER", "\"CAS National Sciences Library of Chinese Academy of Sciences\""));
+                request.CookieContainer.Add(new Uri(cookieUri), new Cookie("E_GROUP_NAME", "\"CAS Library of Beijing\""));
+                request.CookieContainer.Add(new Uri(cookieUri), new Cookie("JSESSIONID", jsesionid));
+            }
+
+
+
 
             //if (response.StatusDescription == "Moved Temporarily") {
             //    OpenSetp2();

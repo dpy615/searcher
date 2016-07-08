@@ -64,14 +64,18 @@ namespace WebOfSciSearcher {
             if (han != null) {
 
                 Dispatcher.Invoke(new Action(() => {
-                    proc.Content = "进度：" + han.step + "/" + han.count;
-                    if (han.dt.Columns.Count != 0) {
-                        DataTable dd = han.dt.Copy();
-                        Dg_han.ItemsSource = dd.DefaultView;
-                        Dg_han.Columns[0].Width = 150;
-                        Dg_han.Columns[1].Width = 150;
-                        Dg_han.Columns[2].Width = 150;
+                    try {
+                        proc.Content = "进度：" + han.step + "/" + han.count;
+                        if (han.dt.Columns.Count != 0) {
+                            DataTable dd = han.dt.Copy();
+                            Dg_han.ItemsSource = dd.DefaultView;
+                            Dg_han.Columns[0].Width = 150;
+                            Dg_han.Columns[1].Width = 150;
+                            Dg_han.Columns[2].Width = 150;
+                        }
+                    } catch (Exception) {
                     }
+                   
                 }));
 
                 if (han.step == han.count) {

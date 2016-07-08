@@ -16,7 +16,7 @@
         <Button Name="btn_begin" Content="开始" HorizontalAlignment="Left" Margin="91,218,0,0" VerticalAlignment="Top" Width="111" Click="BeginDown" Height="114"/>
         <Label Name="pro" Content="进度：0/0" HorizontalAlignment="Left" Margin="227,263,0,0" VerticalAlignment="Top" Width="276"/>
         <TextBox Name="type_box" HorizontalAlignment="Left" Height="23" Margin="483,25,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Width="56"/>
-        <Label Content="搜学校输入0,  搜基金输入1,搜索地址输入2" HorizontalAlignment="Left" Margin="544,27,0,0" VerticalAlignment="Top" Width="174"/>
+        <Label Content="搜学校输入0,  搜基金输入1,&#xD;&#xA;搜索地址输入2" HorizontalAlignment="Left" Margin="544,21,0,0" VerticalAlignment="Top" Width="177" Height="68"/>
 
 
     </Grid>

@@ -15,5 +15,9 @@ namespace WebOfSciSearcher {
         public float matchGate = 0.6f;
         public string httpWeb;
 
+        public string detailWeb;
+        public string upTimeRegex;
+        public int upTimeIndex;
+
     }
 }

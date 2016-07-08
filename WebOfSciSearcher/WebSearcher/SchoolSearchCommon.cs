@@ -1,8 +1,12 @@
-﻿using System;
+﻿using NPOI.HSSF.UserModel;
+using NPOI.SS.UserModel;
+using System;
 using System.Collections;
 using System.Data.OleDb;
+using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
+using System.Windows;
 using WebOfSciSearcher;
 
 namespace WebSearcher {
@@ -48,7 +52,7 @@ namespace WebSearcher {
                             }
                             str = str.Substring(0, str.IndexOf('<') - config.titleRight);
                             if (!string.IsNullOrEmpty(str)) {
-                                double dtmp = Utils.MatchValue(title_old, str);
+                                double dtmp = Utils.MatchValue(title_old, str.Trim());
                                 if (dtmp > matchValue) {
                                     matchValue = dtmp;
                                     matchTitle = str;
@@ -61,7 +65,6 @@ namespace WebSearcher {
                         #endregion
 
                         #region 判断是否需要转入详细链接，查找更多东西
-
                         if (matchValue > config.matchGate && !string.IsNullOrEmpty(config.articleRegex)) {
                             //进入详细页面
                             string http = Regex.Match(matchWeb, config.articleRegex).ToString();
@@ -73,46 +76,123 @@ namespace WebSearcher {
                             //是否可以下载
                             if (!string.IsNullOrEmpty(config.downloadRegex)) {
                                 var downLoadMatch = Regex.Matches(articleRes, config.downloadRegex);
-                                for (int downLoadIndex = 0; downLoadIndex < downLoadMatch.Count && downLoadIndex<6; downLoadIndex++) {
+                                for (int downLoadIndex = 0; downLoadIndex < downLoadMatch.Count && downLoadIndex < 6; downLoadIndex++) {
                                     string match = downLoadMatch[downLoadIndex].ToString();
                                     match = match.Substring(match.IndexOf("\"") + 1);
                                     match = config.httpWeb + match.Substring(0, match.IndexOf("\""));
                                     dt.Rows[i]["download" + downLoadIndex] = match;
                                 }
                             }
+
+                            if (!string.IsNullOrEmpty(config.detailWeb)) {
+                                http = http + config.detailWeb;
+                                string details = web.DownloadString(http);
+                                var uptimeMatch = Regex.Match(details, config.upTimeRegex).ToString();
+                                if (!string.IsNullOrEmpty(uptimeMatch)) {
+                                    for (int li = 0; li < config.upTimeIndex; li++) {
+                                        uptimeMatch = uptimeMatch.Substring(uptimeMatch.IndexOf('>') + 1);
+                                    }
+                                    uptimeMatch = uptimeMatch.Substring(0, uptimeMatch.IndexOf('<'));
+                                }
+                                dt.Rows[i]["upTime"] = uptimeMatch;
+                            }
                             //上次修改日期
-
                         }
-
                         #endregion
 
 
                     } else {
                         dt.Rows[i]["isIn"] = "0";
                     }
-                } catch (Exception) {
+                } catch (Exception e) {
                     dt.Rows[i]["isIn"] = "Error";
+                    MessageBox.Show("读取数据过程中发生错误：" + i + ":" + dt.Rows[i]["标题"].ToString() + "\r\n" + e.ToString());
+                }
+                try {
+                    using (var fs = new FileStream(fileName, FileMode.Open)) {
+                        HSSFWorkbook workBook = new HSSFWorkbook(fs);
+                        ISheet sheet1 = workBook.GetSheet("Sheet1");
+                        IRow row = sheet1.GetRow(i + 1);
+                        int cellsCount =  row.Cells.Count;
+                        for (int rowCount = cellsCount; rowCount < sheet1.GetRow(0).Cells.Count; rowCount++) {
+                            row.CreateCell(rowCount).SetCellValue("");
+                        }
+                        row.Cells[GetColIndex(sheet1, "isIn")].SetCellValue(dt.Rows[i]["isIn"].ToString());
+                        row.Cells[GetColIndex(sheet1, "matchTitle")].SetCellValue(dt.Rows[i]["matchTitle"].ToString());
+                        row.Cells[GetColIndex(sheet1, "download0")].SetCellValue(dt.Rows[i]["download0"].ToString());
+                        row.Cells[GetColIndex(sheet1, "download1")].SetCellValue(dt.Rows[i]["download1"].ToString());
+                        row.Cells[GetColIndex(sheet1, "download2")].SetCellValue(dt.Rows[i]["download2"].ToString());
+                        row.Cells[GetColIndex(sheet1, "download3")].SetCellValue(dt.Rows[i]["download3"].ToString());
+                        row.Cells[GetColIndex(sheet1, "download4")].SetCellValue(dt.Rows[i]["download4"].ToString());
+                        row.Cells[GetColIndex(sheet1, "upTime")].SetCellValue(dt.Rows[i]["upTime"].ToString());
+                        using (var fs1 = new FileStream(fileName, FileMode.Open)) {
+                            workBook.Write(fs1);
+                        }
+                    }
+                } catch (Exception e) {
+                    MessageBox.Show("保存数据过程中发生错误：" + i + ":" + dt.Rows[i]["标题"].ToString() + "\r\n" + e.ToString());
                 }
 
-                string strConnection = String.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source ={0};Extended Properties = Excel 8.0", fileName);
-                OleDbConnection oleConnection = new OleDbConnection(strConnection);
-                oleConnection.Open();
-                string sql = String.Format("update [Sheet1$] set isIn = '{0}',matchTitle = '{1}',download0='{3}',download1='{4}',download2='{5}',download3='{6}',download4='{7}' where 标题 = '{2}'",
-                    new string[] { dt.Rows[i]["isIn"].ToString(), 
-                        dt.Rows[i]["matchTitle"].ToString(),
-                        dt.Rows[i][0].ToString().Replace("'", "''"), 
-                        dt.Rows[i]["download0"].ToString(), 
-                        dt.Rows[i]["download1"].ToString(), 
-                        dt.Rows[i]["download2"].ToString(), 
-                        dt.Rows[i]["download3"].ToString(), 
-                        dt.Rows[i]["download4"].ToString()
-                    });
-                OleDbCommand command = new OleDbCommand(sql, oleConnection);
-                command.ExecuteNonQuery();
-                oleConnection.Close();
 
+                #region 旧的保存方法
+                /* 
+//                string strConnection = String.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source ={0};Extended Properties = Excel 8.0", fileName);
+//                OleDbConnection oleConnection = new OleDbConnection(strConnection);
+//                oleConnection.Open();
+//                try {
+//                    string sql = String.Format("update [Sheet1$] set isIn = '{0}',matchTitle = '{1}',download0='{3}',download1='{4}',download2='{5}',download3='{6}',download4='{7}' where 标题 = '{2}'",
+//                   new string[] { dt.Rows[i]["isIn"].ToString(), 
+//                        dt.Rows[i]["matchTitle"].ToString().Replace("'", "''"),
+//                        dt.Rows[i][0].ToString().Replace("'", "''"), 
+//                        dt.Rows[i]["download0"].ToString(), 
+//                        dt.Rows[i]["download1"].ToString(), 
+//                        dt.Rows[i]["download2"].ToString(), 
+//                        dt.Rows[i]["download3"].ToString(), 
+//                        dt.Rows[i]["download4"].ToString()
+//                    });
+//                    OleDbCommand command = new OleDbCommand(sql, oleConnection);
+//                    command.ExecuteNonQuery();
+//                } catch (Exception) {
+//                    try {
+//                        string sql = String.Format("update [Sheet1$] set isIn = '{0}',matchTitle = '{1}',download0='{3}' where 标题 = '{2}'",
+//new string[] { dt.Rows[i]["isIn"].ToString(), 
+//                        dt.Rows[i]["matchTitle"].ToString().Replace("'", "''"),
+//                        dt.Rows[i][0].ToString().Replace("'", "''"), 
+//                        "下载链接太长，无法显示"
+                        
+//                    });
+//                        OleDbCommand command = new OleDbCommand(sql, oleConnection);
+//                        command.ExecuteNonQuery();
+//                    } catch (Exception) {
+
+//                        string sql = String.Format("update [Sheet1$] set isIn = '{0}',matchTitle = '{1}' where 标题 = '{2}'",
+//new string[] { dt.Rows[i]["isIn"].ToString(), 
+//                        "匹配错误，请手动匹配",
+//                        dt.Rows[i][0].ToString().Replace("'", "''")
+                        
+//                    });
+//                        OleDbCommand command = new OleDbCommand(sql, oleConnection);
+//                        command.ExecuteNonQuery();
+//                    }
+
+//                }
+
+
+//                oleConnection.Close();
+                */
+                #endregion
                 over++;
             }
+        }
+
+        public static int GetColIndex(ISheet sheet1, string colName) {
+            IRow row = sheet1.GetRow(0);
+            for (int i = 0; i < row.Cells.Count; i++) {
+                if (row.Cells[i].ToString() == colName) {
+                    return i;
+                }
+            }
+            return -1;
         }
 
     }

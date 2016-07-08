@@ -61,7 +61,10 @@ namespace WebOfSciSearcher {
                     config.httpWeb = row["httpWeb"].ToString();
                     config.articleRegex = row["articleRegex"].ToString();
                     config.downloadRegex = row["downloadRegex"].ToString();
-
+                    config.detailWeb = row["detailWeb"].ToString();
+                    config.upTimeRegex= row["upTimeRegex"].ToString();
+                    string sUptimeIndex = row["upTimeIndex"].ToString();
+                    int.TryParse(sUptimeIndex, out config.upTimeIndex);
                     dicReturn.Add(config.schoolName, config);
                 }
             }
@@ -79,7 +82,7 @@ namespace WebOfSciSearcher {
 
             List<string> strArray1 = ToList(str1);
             List<string> strArray2 = ToList(str2);
-            
+
             foreach (var item in strArray1) {
                 if (strArray2.Contains(item)) {
                     strArray2.Remove(item);
