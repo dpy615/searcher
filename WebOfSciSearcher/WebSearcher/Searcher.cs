@@ -32,7 +32,13 @@ namespace WebSearcher {
 
             CheckCol("isIn");
             CheckCol("matchTitle");
-            CheckCol("upTime");
+            CheckCol("date_accessioned");
+            CheckCol("date_available");
+            CheckCol("date_issued");
+            CheckCol("language");
+            CheckCol("rights");
+            CheckCol("rightsUri");
+            CheckCol("type");
             CheckCol("downloadType");
             CheckCol("download0");
             CheckCol("download1");

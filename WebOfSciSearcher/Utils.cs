@@ -61,10 +61,39 @@ namespace WebOfSciSearcher {
                     config.httpWeb = row["httpWeb"].ToString();
                     config.articleRegex = row["articleRegex"].ToString();
                     config.downloadRegex = row["downloadRegex"].ToString();
+                    string tmp = row["downloadIndex"].ToString();
+                    int.TryParse(tmp, out config.downloadIndex);
                     config.detailWeb = row["detailWeb"].ToString();
-                    config.upTimeRegex= row["upTimeRegex"].ToString();
-                    string sUptimeIndex = row["upTimeIndex"].ToString();
-                    int.TryParse(sUptimeIndex, out config.upTimeIndex);
+                    
+                    config.dateAssionRegex= row["dateAssionRegex"].ToString();
+                     tmp = row["dateAssionIndex"].ToString();
+                    int.TryParse(tmp, out config.dateAssionIndex);
+
+
+                    config.dateAvailableRegex = row["dateAvailableRegex"].ToString();
+                    tmp = row["dateAvailableIndex"].ToString();
+                    int.TryParse(tmp, out config.dateAvailableIndex);
+
+                    config.dateIssuRegex = row["dateIssuRegex"].ToString();
+                    tmp = row["dateIssuIndex"].ToString();
+                    int.TryParse(tmp, out config.dateIssuIndex);
+
+                    config.languageRegex = row["languageRegex"].ToString();
+                    tmp = row["languageIndex"].ToString();
+                    int.TryParse(tmp, out config.languageIndex);
+
+                    config.rightsRegex = row["rightsRegex"].ToString();
+                    tmp = row["rightsIndex"].ToString();
+                    int.TryParse(tmp, out config.rightsIndex);
+
+                    config.rightsUriRegex = row["rightsUriRegex"].ToString();
+                    tmp = row["rightsUriIndex"].ToString();
+                    int.TryParse(tmp, out config.rightsUriIndex);
+
+                    config.typeRegex = row["typeRegex"].ToString();
+                    tmp = row["typeIndex"].ToString();
+                    int.TryParse(tmp, out config.typeIndex);
+
                     dicReturn.Add(config.schoolName, config);
                 }
             }

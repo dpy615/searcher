@@ -162,7 +162,8 @@ E:\git\searcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.Properties.Resources
 E:\git\searcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.csproj.GenerateResource.Cache
 E:\git\searcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.exe
 E:\git\searcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.pdb
-E:\git\searcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.csprojResolveAssemblyReference.cache
 F:\Documents\GitHub\searcher\WebOfSciSearcher\bin\Debug\NPOI.dll
 F:\Documents\GitHub\searcher\WebOfSciSearcher\bin\Debug\Ionic.Zip.dll
 F:\Documents\GitHub\searcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.csprojResolveAssemblyReference.cache
+E:\git\searcher\WebOfSciSearcher\bin\Debug\NPOI.dll
+E:\git\searcher\WebOfSciSearcher\bin\Debug\Ionic.Zip.dll

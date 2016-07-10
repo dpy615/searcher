@@ -28,7 +28,6 @@ namespace WebSearcher {
                     string title = title_old.Replace(' ', '+').Replace("'", "%27").Replace('&', '+');
 
                     string uri = config.url1 + title + config.url2;
-
                     WebClient web = new WebClient();
                     string res = web.DownloadString(uri).ToLower().Replace("\r", "").Replace("\n", "");
 
@@ -78,7 +77,9 @@ namespace WebSearcher {
                                 var downLoadMatch = Regex.Matches(articleRes, config.downloadRegex);
                                 for (int downLoadIndex = 0; downLoadIndex < downLoadMatch.Count && downLoadIndex < 6; downLoadIndex++) {
                                     string match = downLoadMatch[downLoadIndex].ToString();
-                                    match = match.Substring(match.IndexOf("\"") + 1);
+                                    for (int t = 0; t < config.downloadIndex; t++) {
+                                        match = match.Substring(match.IndexOf("\"") + 1);
+                                    }
                                     match = config.httpWeb + match.Substring(0, match.IndexOf("\""));
                                     dt.Rows[i]["download" + downLoadIndex] = match;
                                 }
@@ -86,17 +87,9 @@ namespace WebSearcher {
 
                             if (!string.IsNullOrEmpty(config.detailWeb)) {
                                 http = http + config.detailWeb;
-                                string details = web.DownloadString(http);
-                                var uptimeMatch = Regex.Match(details, config.upTimeRegex).ToString();
-                                if (!string.IsNullOrEmpty(uptimeMatch)) {
-                                    for (int li = 0; li < config.upTimeIndex; li++) {
-                                        uptimeMatch = uptimeMatch.Substring(uptimeMatch.IndexOf('>') + 1);
-                                    }
-                                    uptimeMatch = uptimeMatch.Substring(0, uptimeMatch.IndexOf('<'));
-                                }
-                                dt.Rows[i]["upTime"] = uptimeMatch;
+                                string details = web.DownloadString(http).Replace("\n","").Replace("\r","");
+                                Detailes(i, details);
                             }
-                            //上次修改日期
                         }
                         #endregion
 
@@ -113,7 +106,7 @@ namespace WebSearcher {
                         HSSFWorkbook workBook = new HSSFWorkbook(fs);
                         ISheet sheet1 = workBook.GetSheet("Sheet1");
                         IRow row = sheet1.GetRow(i + 1);
-                        int cellsCount =  row.Cells.Count;
+                        int cellsCount = row.Cells.Count;
                         for (int rowCount = cellsCount; rowCount < sheet1.GetRow(0).Cells.Count; rowCount++) {
                             row.CreateCell(rowCount).SetCellValue("");
                         }
@@ -124,7 +117,14 @@ namespace WebSearcher {
                         row.Cells[GetColIndex(sheet1, "download2")].SetCellValue(dt.Rows[i]["download2"].ToString());
                         row.Cells[GetColIndex(sheet1, "download3")].SetCellValue(dt.Rows[i]["download3"].ToString());
                         row.Cells[GetColIndex(sheet1, "download4")].SetCellValue(dt.Rows[i]["download4"].ToString());
-                        row.Cells[GetColIndex(sheet1, "upTime")].SetCellValue(dt.Rows[i]["upTime"].ToString());
+                        row.Cells[GetColIndex(sheet1, "date_accessioned")].SetCellValue(dt.Rows[i]["date_accessioned"].ToString());
+                        row.Cells[GetColIndex(sheet1, "date_available")].SetCellValue(dt.Rows[i]["date_available"].ToString());
+                        row.Cells[GetColIndex(sheet1, "date_issued")].SetCellValue(dt.Rows[i]["date_issued"].ToString());
+                        row.Cells[GetColIndex(sheet1, "language")].SetCellValue(dt.Rows[i]["language"].ToString());
+                        row.Cells[GetColIndex(sheet1, "rights")].SetCellValue(dt.Rows[i]["rights"].ToString());
+                        row.Cells[GetColIndex(sheet1, "rightsUri")].SetCellValue(dt.Rows[i]["rightsUri"].ToString());
+                        row.Cells[GetColIndex(sheet1, "type")].SetCellValue(dt.Rows[i]["type"].ToString());
+                       
                         using (var fs1 = new FileStream(fileName, FileMode.Open)) {
                             workBook.Write(fs1);
                         }
@@ -183,6 +183,93 @@ namespace WebSearcher {
                 #endregion
                 over++;
             }
+        }
+
+        private void Detailes(int i, string details) {
+            //上传日期
+            if (!string.IsNullOrEmpty(config.dateAssionRegex)) {
+                var tmpMatch = Regex.Match(details, config.dateAssionRegex).ToString();
+                if (!string.IsNullOrEmpty(tmpMatch)) {
+                    for (int li = 0; li < config.dateAssionIndex; li++) {
+                        tmpMatch = tmpMatch.Substring(tmpMatch.IndexOf('>') + 1);
+                    }
+                    tmpMatch = tmpMatch.Substring(0, tmpMatch.IndexOf('<'));
+                }
+                dt.Rows[i]["date_accessioned"] = tmpMatch;
+            }
+
+            //可用日期
+            if (!string.IsNullOrEmpty(config.dateAvailableRegex)) {
+                var tmpMatch = Regex.Match(details, config.dateAvailableRegex).ToString();
+                if (!string.IsNullOrEmpty(tmpMatch)) {
+                    for (int li = 0; li < config.dateAvailableIndex; li++) {
+                        tmpMatch = tmpMatch.Substring(tmpMatch.IndexOf('>') + 1);
+                    }
+                    tmpMatch = tmpMatch.Substring(0, tmpMatch.IndexOf('<'));
+                }
+                dt.Rows[i]["date_available"] = tmpMatch;
+            }
+
+            //发表日期
+            if (!string.IsNullOrEmpty(config.dateIssuRegex)) {
+                var tmpMatch = Regex.Match(details, config.dateIssuRegex).ToString();
+                if (!string.IsNullOrEmpty(tmpMatch)) {
+                    for (int li = 0; li < config.dateIssuIndex; li++) {
+                        tmpMatch = tmpMatch.Substring(tmpMatch.IndexOf('>') + 1);
+                    }
+                    tmpMatch = tmpMatch.Substring(0, tmpMatch.IndexOf('<'));
+                }
+                dt.Rows[i]["date_issued"] = tmpMatch;
+            }
+
+            //language
+            if (!string.IsNullOrEmpty(config.languageRegex)) {
+                var tmpMatch = Regex.Match(details, config.languageRegex).ToString();
+                if (!string.IsNullOrEmpty(tmpMatch)) {
+                    for (int li = 0; li < config.languageIndex; li++) {
+                        tmpMatch = tmpMatch.Substring(tmpMatch.IndexOf('>') + 1);
+                    }
+                    tmpMatch = tmpMatch.Substring(0, tmpMatch.IndexOf('<'));
+                }
+                dt.Rows[i]["language"] = tmpMatch;
+            }
+
+            //rights
+            if (!string.IsNullOrEmpty(config.rightsRegex)) {
+                var tmpMatch = Regex.Match(details, config.rightsRegex).ToString();
+                if (!string.IsNullOrEmpty(tmpMatch)) {
+                    for (int li = 0; li < config.rightsIndex; li++) {
+                        tmpMatch = tmpMatch.Substring(tmpMatch.IndexOf('>') + 1);
+                    }
+                    tmpMatch = tmpMatch.Substring(0, tmpMatch.IndexOf('<'));
+                }
+                dt.Rows[i]["rights"] = tmpMatch;
+            }
+
+            //rightsUri
+            if (!string.IsNullOrEmpty(config.rightsUriRegex)) {
+                var tmpMatch = Regex.Match(details, config.rightsUriRegex).ToString();
+                if (!string.IsNullOrEmpty(tmpMatch)) {
+                    for (int li = 0; li < config.rightsUriIndex; li++) {
+                        tmpMatch = tmpMatch.Substring(tmpMatch.IndexOf('>') + 1);
+                    }
+                    tmpMatch = tmpMatch.Substring(0, tmpMatch.IndexOf('<'));
+                }
+                dt.Rows[i]["rightsUri"] = tmpMatch;
+            }
+
+            //type
+            if (!string.IsNullOrEmpty(config.typeRegex)) {
+                var tmpMatch = Regex.Match(details, config.typeRegex).ToString();
+                if (!string.IsNullOrEmpty(tmpMatch)) {
+                    for (int li = 0; li < config.typeIndex; li++) {
+                        tmpMatch = tmpMatch.Substring(tmpMatch.IndexOf('>') + 1);
+                    }
+                    tmpMatch = tmpMatch.Substring(0, tmpMatch.IndexOf('<'));
+                }
+                dt.Rows[i]["type"] = tmpMatch;
+            }
+
         }
 
         public static int GetColIndex(ISheet sheet1, string colName) {
