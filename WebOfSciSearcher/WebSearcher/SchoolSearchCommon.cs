@@ -87,7 +87,7 @@ namespace WebSearcher {
 
                             if (!string.IsNullOrEmpty(config.detailWeb)) {
                                 http = http + config.detailWeb;
-                                string details = web.DownloadString(http).Replace("\n","").Replace("\r","");
+                                string details = web.DownloadString(http).Replace("\n", "").Replace("\r", "");
                                 Detailes(i, details);
                             }
                         }
@@ -102,31 +102,33 @@ namespace WebSearcher {
                     MessageBox.Show("读取数据过程中发生错误：" + i + ":" + dt.Rows[i]["标题"].ToString() + "\r\n" + e.ToString());
                 }
                 try {
-                    using (var fs = new FileStream(fileName, FileMode.Open)) {
-                        HSSFWorkbook workBook = new HSSFWorkbook(fs);
-                        ISheet sheet1 = workBook.GetSheet("Sheet1");
-                        IRow row = sheet1.GetRow(i + 1);
-                        int cellsCount = row.Cells.Count;
-                        for (int rowCount = cellsCount; rowCount < sheet1.GetRow(0).Cells.Count; rowCount++) {
-                            row.CreateCell(rowCount).SetCellValue("");
-                        }
-                        row.Cells[GetColIndex(sheet1, "isIn")].SetCellValue(dt.Rows[i]["isIn"].ToString());
-                        row.Cells[GetColIndex(sheet1, "matchTitle")].SetCellValue(dt.Rows[i]["matchTitle"].ToString());
-                        row.Cells[GetColIndex(sheet1, "download0")].SetCellValue(dt.Rows[i]["download0"].ToString());
-                        row.Cells[GetColIndex(sheet1, "download1")].SetCellValue(dt.Rows[i]["download1"].ToString());
-                        row.Cells[GetColIndex(sheet1, "download2")].SetCellValue(dt.Rows[i]["download2"].ToString());
-                        row.Cells[GetColIndex(sheet1, "download3")].SetCellValue(dt.Rows[i]["download3"].ToString());
-                        row.Cells[GetColIndex(sheet1, "download4")].SetCellValue(dt.Rows[i]["download4"].ToString());
-                        row.Cells[GetColIndex(sheet1, "date_accessioned")].SetCellValue(dt.Rows[i]["date_accessioned"].ToString());
-                        row.Cells[GetColIndex(sheet1, "date_available")].SetCellValue(dt.Rows[i]["date_available"].ToString());
-                        row.Cells[GetColIndex(sheet1, "date_issued")].SetCellValue(dt.Rows[i]["date_issued"].ToString());
-                        row.Cells[GetColIndex(sheet1, "language")].SetCellValue(dt.Rows[i]["language"].ToString());
-                        row.Cells[GetColIndex(sheet1, "rights")].SetCellValue(dt.Rows[i]["rights"].ToString());
-                        row.Cells[GetColIndex(sheet1, "rightsUri")].SetCellValue(dt.Rows[i]["rightsUri"].ToString());
-                        row.Cells[GetColIndex(sheet1, "type")].SetCellValue(dt.Rows[i]["type"].ToString());
-                       
-                        using (var fs1 = new FileStream(fileName, FileMode.Open)) {
-                            workBook.Write(fs1);
+                    lock (_locker) {
+                        using (var fs = new FileStream(fileName, FileMode.Open)) {
+                            HSSFWorkbook workBook = new HSSFWorkbook(fs);
+                            ISheet sheet1 = workBook.GetSheet("Sheet1");
+                            IRow row = sheet1.GetRow(i + 1);
+                            int cellsCount = row.Cells.Count;
+                            for (int rowCount = cellsCount; rowCount < sheet1.GetRow(0).Cells.Count; rowCount++) {
+                                row.CreateCell(rowCount).SetCellValue("");
+                            }
+                            row.Cells[GetColIndex(sheet1, "isIn")].SetCellValue(dt.Rows[i]["isIn"].ToString());
+                            row.Cells[GetColIndex(sheet1, "matchTitle")].SetCellValue(dt.Rows[i]["matchTitle"].ToString());
+                            row.Cells[GetColIndex(sheet1, "download0")].SetCellValue(dt.Rows[i]["download0"].ToString());
+                            row.Cells[GetColIndex(sheet1, "download1")].SetCellValue(dt.Rows[i]["download1"].ToString());
+                            row.Cells[GetColIndex(sheet1, "download2")].SetCellValue(dt.Rows[i]["download2"].ToString());
+                            row.Cells[GetColIndex(sheet1, "download3")].SetCellValue(dt.Rows[i]["download3"].ToString());
+                            row.Cells[GetColIndex(sheet1, "download4")].SetCellValue(dt.Rows[i]["download4"].ToString());
+                            row.Cells[GetColIndex(sheet1, "date_accessioned")].SetCellValue(dt.Rows[i]["date_accessioned"].ToString());
+                            row.Cells[GetColIndex(sheet1, "date_available")].SetCellValue(dt.Rows[i]["date_available"].ToString());
+                            row.Cells[GetColIndex(sheet1, "date_issued")].SetCellValue(dt.Rows[i]["date_issued"].ToString());
+                            row.Cells[GetColIndex(sheet1, "language")].SetCellValue(dt.Rows[i]["language"].ToString());
+                            row.Cells[GetColIndex(sheet1, "rights")].SetCellValue(dt.Rows[i]["rights"].ToString());
+                            row.Cells[GetColIndex(sheet1, "rightsUri")].SetCellValue(dt.Rows[i]["rightsUri"].ToString());
+                            row.Cells[GetColIndex(sheet1, "type")].SetCellValue(dt.Rows[i]["type"].ToString());
+
+                            using (var fs1 = new FileStream(fileName, FileMode.Open)) {
+                                workBook.Write(fs1);
+                            }
                         }
                     }
                 } catch (Exception e) {

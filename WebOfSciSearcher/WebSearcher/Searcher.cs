@@ -26,6 +26,8 @@ namespace WebSearcher {
         public int no = 0;
         public int error = 0;
 
+        public static object _locker = new object();
+
 
         public void GetData(int thCount, string fileName) {
             this.fileName = fileName;
@@ -45,7 +47,7 @@ namespace WebSearcher {
             CheckCol("download2");
             CheckCol("download3");
             CheckCol("download4");
-            
+
 
             if (thCount < 1) return;
             string strConnection = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source =" + fileName + ";Extended Properties = Excel 8.0";
@@ -76,27 +78,29 @@ namespace WebSearcher {
         public abstract void GetRes(object o);
 
         public void CheckCol(string colName) {
-            string strConnection = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source =" + fileName + ";Extended Properties = Excel 8.0";
-            OleDbConnection oleConnection = new OleDbConnection(strConnection);
-            oleConnection.Open();
-            try {
-                OleDbDataAdapter adapter = new OleDbDataAdapter("select " + colName + " from [Sheet1$]", oleConnection);
-                adapter.Fill(new DataTable());
-            } catch (Exception e) {
-                oleConnection.Close();
-                var fs = new FileStream(fileName, FileMode.Open);
-                HSSFWorkbook workBook = new HSSFWorkbook(fs);
-                ISheet sheet1 = workBook.GetSheet("Sheet1");
-                IRow row = sheet1.GetRow(0);
-                row.CreateCell(row.Cells.Count).SetCellValue(colName);
-
-                var fs1 = new FileStream(fileName, FileMode.Open);
-                workBook.Write(fs1);
-                fs1.Close();
-            } finally {
+            lock (_locker) {
+                string strConnection = "Provider=Microsoft.Jet.OLEDB.4.0;" + "Data Source =" + fileName + ";Extended Properties = Excel 8.0";
+                OleDbConnection oleConnection = new OleDbConnection(strConnection);
+                oleConnection.Open();
                 try {
+                    OleDbDataAdapter adapter = new OleDbDataAdapter("select " + colName + " from [Sheet1$]", oleConnection);
+                    adapter.Fill(new DataTable());
+                } catch (Exception e) {
                     oleConnection.Close();
-                } catch (Exception) {
+                    var fs = new FileStream(fileName, FileMode.Open);
+                    HSSFWorkbook workBook = new HSSFWorkbook(fs);
+                    ISheet sheet1 = workBook.GetSheet("Sheet1");
+                    IRow row = sheet1.GetRow(0);
+                    row.CreateCell(row.Cells.Count).SetCellValue(colName);
+
+                    var fs1 = new FileStream(fileName, FileMode.Open);
+                    workBook.Write(fs1);
+                    fs1.Close();
+                } finally {
+                    try {
+                        oleConnection.Close();
+                    } catch (Exception) {
+                    }
                 }
             }
 
