@@ -10,6 +10,7 @@ namespace WebOfSciSearcher {
         public int titleLeft;
         public int titleRight;
         public List<string[]> contentReplace;
+        public List<string[]> urlReplace;
         public string articleRegex;
         public string downloadRegex;
         public int downloadIndex;

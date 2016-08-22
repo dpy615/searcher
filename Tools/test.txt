@@ -1,0 +1,46 @@
+http://dspace.mit.edu/search?query=
+
+&submit.x=0&submit.y=0
+
+<td+class="label-cell">dc\.date\.accessioned</td><td>.*?</td>
+<td class="label-cell">dc\.date\.available</td><td>.*?</td>
+<td class="label-cell">dc\.date\.issued</td><td>.*?</td>
+<td class="label-cell">dc\.language\.iso</td><td>.*?</td>
+<td class="label-cell">dc\.type</td><td>.*?</td>
+
+http://www.zora.uzh.ch/cgi/search/simple?q=
+Distraction+test+of+the+posterior+superior+iliac+spine+%28PSIS%29+in+the+diagnosis+of+sacroiliac+joint+arthropathy
+&_action_search=Search&order=&basic_srchtype=ALL&_satisfyall=ALL
+
+<tr><th valign="top" class="ep_row">Item Type:</th><td valign="top" class="ep_row">.*?</td></tr>
+<tr><th valign="top" class="ep_row">Language:</th><td valign="top" class="ep_row">.*?</td></tr><tr>
+<tr><th valign="top" class="ep_row">Date:</th><td valign="top" class="ep_row">.*?</td></tr><tr>
+<tr><th valign="top" class="ep_row">Deposited On:</th><td valign="top" class="ep_row">.*?</td></tr><tr>
+<tr><th valign="top" class="ep_row">Last Modified:</th><td valign="top" class="ep_row">.*?</td></tr><tr>
+
+
+<div class="display-item-bitstream"><a target="_blank" href="/bitstream/.*?\.pdf">
+<tr><td headers="s1" class="metadataFieldLabel">dc\.date\.accessioned</td><td headers="s2" class="metadataFieldValue">.*?</td>
+<tr><td headers="s1" class="metadataFieldLabel">dc\.date\.available</td><td headers="s2" class="metadataFieldValue">.*?</td>
+<tr><td headers="s1" class="metadataFieldLabel">dc\.date\.issued</td><td headers="s2" class="metadataFieldValue">.*?</td>
+<tr><td headers="s1" class="metadataFieldLabel">dc\.language\.iso</td><td headers="s2" class="metadataFieldValue">.*?</td>
+<tr><td headers="s1" class="metadataFieldLabel">dc\.type</td><td headers="s2" class="metadataFieldValue">.*?</td>
+
+http://s-space.snu.ac.kr/simple-search?query=
+A+study+on+the+Kolmogorov-Smirnov+test+statistic+for+non-linearity+test
+
+http://s-space.snu.ac.kr/handle/10371/37483?mode=full&submit_simple=Show+full+item+record
+
+<tr><td headers="s1" class="metadataFieldLabel">dc\.date\.accessioned</td><td headers="s2" class="metadataFieldValue">.*?</td>
+<tr><td headers="s1" class="metadataFieldLabel">dc\.date\.available</td><td headers="s2" class="metadataFieldValue">.*?</td>
+<tr><td headers="s1" class="metadataFieldLabel">dc\.date\.issued</td><td headers="s2" class="metadataFieldValue">.*?</td>
+<tr><td headers="s1" class="metadataFieldLabel">dc\.language\.iso</td><td headers="s2" class="metadataFieldValue">.*?</td>
+<tr><td headers="s1" class="metadataFieldLabel">dc\.type</td><td headers="s2" class="metadataFieldValue">.*?</td>
+
+http://ir.pku.edu.cn/simple-search?query=Measurement+of+Prompt+psi(2S)+to+J/psi.+Yield+Ratios+in+Pb-Pb+and+p-p+Collisions+at+root+sNN2.76+TeV
+
+http://ir.pku.edu.cn/simple-search?query=Group+contingency+test+for+two+or+several+independent+samples+
+http://ir.pku.edu.cn/simple-search?query=Lightness+of+Higgs+boson+and+spontaneous+CP+violation+in+the+Lee+model&rpp=20&sort_by=score&order=desc
+http://ir.pku.edu.cn/simple-search?query=Measurement+of+Prompt+psi(2S)+to+J%2Fpsi.+Yield+Ratios+in+Pb-Pb+and+p-p+Collisions+at+root+sNN%3D+2.76+TeV&rpp=20&sort_by=score&order=desc
+Measurement of Prompt psi(2S) to J/psi. Yield Ratios in Pb-Pb and p-p Collisions at root sNN=2.76 TeV
+

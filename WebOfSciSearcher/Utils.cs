@@ -53,7 +53,15 @@ namespace WebOfSciSearcher {
                     config.contentReplace = new List<string[]>();
                     for (int i = 0; i < replaces.Length; i++) {
                         if (!string.IsNullOrEmpty(replaces[0])) {
-                            config.contentReplace.Add(new string[] { replaces[i].Split(',')[0], replaces[i].Split(',')[1].Replace("空格"," ") });
+                            config.contentReplace.Add(new string[] { replaces[i].Split(',')[0], replaces[i].Split(',')[1].Replace("空格", " ") });
+                        }
+                    }
+
+                    replaces = row["urlReplace"].ToString().Split('|');
+                    config.urlReplace = new List<string[]>();
+                    for (int i = 0; i < replaces.Length; i++) {
+                        if (!string.IsNullOrEmpty(replaces[0])) {
+                            config.urlReplace.Add(new string[] { replaces[i].Split(',')[0], replaces[i].Split(',')[1].Replace("空格", " ") });
                         }
                     }
 
@@ -64,9 +72,9 @@ namespace WebOfSciSearcher {
                     string tmp = row["downloadIndex"].ToString();
                     int.TryParse(tmp, out config.downloadIndex);
                     config.detailWeb = row["detailWeb"].ToString();
-                    
-                    config.dateAssionRegex= row["dateAssionRegex"].ToString();
-                     tmp = row["dateAssionIndex"].ToString();
+
+                    config.dateAssionRegex = row["dateAssionRegex"].ToString();
+                    tmp = row["dateAssionIndex"].ToString();
                     int.TryParse(tmp, out config.dateAssionIndex);
 
 

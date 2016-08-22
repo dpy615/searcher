@@ -27,7 +27,18 @@ namespace WebSearcher {
 
                     string title = title_old.Replace(' ', '+').Replace("'", "%27").Replace('&', '+');
 
+                    if (config.urlReplace.Count > 0) {
+                        foreach (var replace in config.urlReplace) {
+                            title = title.Replace(replace[0], replace[1]);
+                        }
+                    }
+
+
                     string uri = config.url1 + title + config.url2;
+
+                    // HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
+                    // string res = new StreamReader(((HttpWebResponse)request.GetResponse()).GetResponseStream()).ReadToEnd();
+
                     WebClient web = new WebClient();
                     string res = web.DownloadString(uri).ToLower().Replace("\r", "").Replace("\n", "");
 
@@ -98,18 +109,19 @@ namespace WebSearcher {
                         dt.Rows[i]["isIn"] = "0";
                     }
                 } catch (Exception e) {
-                    dt.Rows[i]["isIn"] = "Error";
-                    MessageBox.Show("读取数据过程中发生错误：" + i + ":" + dt.Rows[i]["标题"].ToString() + "\r\n" + e.ToString());
+                    dt.Rows[i]["isIn"] = e.Message;
+                    //MessageBox.Show("读取数据过程中发生错误：" + i + ":" + dt.Rows[i]["标题"].ToString() + "\r\n" + e.ToString());
                 }
                 try {
                     lock (_locker) {
                         using (var fs = new FileStream(fileName, FileMode.Open)) {
-                            HSSFWorkbook workBook = new HSSFWorkbook(fs);
+                            HSSFWorkbook workBook = new XSSFWorkbook(fs);
                             ISheet sheet1 = workBook.GetSheet("Sheet1");
                             IRow row = sheet1.GetRow(i + 1);
                             int cellsCount = row.Cells.Count;
-                            for (int rowCount = cellsCount; rowCount < sheet1.GetRow(0).Cells.Count; rowCount++) {
-                                row.CreateCell(rowCount).SetCellValue("");
+                            int columnsCount = sheet1.GetRow(0).Cells.Count;
+                            while ((cellsCount = row.Cells.Count) < columnsCount){
+                                row.CreateCell(cellsCount++,CellType.STRING).SetCellValue("1");
                             }
                             row.Cells[GetColIndex(sheet1, "isIn")].SetCellValue(dt.Rows[i]["isIn"].ToString());
                             row.Cells[GetColIndex(sheet1, "matchTitle")].SetCellValue(dt.Rows[i]["matchTitle"].ToString());
