@@ -85,7 +85,7 @@ namespace WebSearcher {
                 try {
                     OleDbDataAdapter adapter = new OleDbDataAdapter("select " + colName + " from [Sheet1$]", oleConnection);
                     adapter.Fill(new DataTable());
-                } catch (Exception e) {
+                } catch (Exception) {
                     oleConnection.Close();
                     var fs = new FileStream(fileName, FileMode.Open);
                     HSSFWorkbook workBook = new HSSFWorkbook(fs);

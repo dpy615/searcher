@@ -167,4 +167,3 @@ F:\Documents\GitHub\searcher\WebOfSciSearcher\bin\Debug\Ionic.Zip.dll
 E:\git\searcher\WebOfSciSearcher\bin\Debug\NPOI.dll
 E:\git\searcher\WebOfSciSearcher\bin\Debug\Ionic.Zip.dll
 E:\git\searcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.csprojResolveAssemblyReference.cache
-F:\Documents\GitHub\searcher\WebOfSciSearcher\obj\Debug\WebOfSciSearcher.csprojResolveAssemblyReference.cache

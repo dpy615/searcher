@@ -62,7 +62,7 @@ namespace WebSearcher {
                             }
                             str = str.Substring(0, str.IndexOf('<') - config.titleRight);
                             if (!string.IsNullOrEmpty(str)) {
-                                double dtmp = Utils.MatchValue(title_old, str.Trim());
+                                double dtmp = Utils.MatchValue(title_old, str.Trim(),false);
                                 if (dtmp > matchValue) {
                                     matchValue = dtmp;
                                     matchTitle = str;
@@ -115,7 +115,7 @@ namespace WebSearcher {
                 try {
                     lock (_locker) {
                         using (var fs = new FileStream(fileName, FileMode.Open)) {
-                            HSSFWorkbook workBook = new XSSFWorkbook(fs);
+                            HSSFWorkbook workBook = new HSSFWorkbook(fs);
                             ISheet sheet1 = workBook.GetSheet("Sheet1");
                             IRow row = sheet1.GetRow(i + 1);
                             int cellsCount = row.Cells.Count;
