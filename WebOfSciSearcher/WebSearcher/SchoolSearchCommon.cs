@@ -16,8 +16,9 @@ namespace WebSearcher {
             ArrayList l = (ArrayList)o;
             int start = (int)l[0];
             int end = (int)l[1];
+            float isin;
             for (int i = start; i < end; i++) {
-                if (!string.IsNullOrEmpty(dt.Rows[i]["isIn"].ToString()) && dt.Rows[i]["isIn"].ToString().ToUpper() != "ERROR") {
+                if (!string.IsNullOrEmpty(dt.Rows[i]["isIn"].ToString()) && float.TryParse(dt.Rows[i]["isIn"].ToString(),out isin)) {
                     over++;
                     continue;
                 }
@@ -86,7 +87,7 @@ namespace WebSearcher {
                             //是否可以下载
                             if (!string.IsNullOrEmpty(config.downloadRegex)) {
                                 var downLoadMatch = Regex.Matches(articleRes, config.downloadRegex);
-                                for (int downLoadIndex = 0; downLoadIndex < downLoadMatch.Count && downLoadIndex < 6; downLoadIndex++) {
+                                for (int downLoadIndex = 0; downLoadIndex < downLoadMatch.Count && downLoadIndex < 5; downLoadIndex++) {
                                     string match = downLoadMatch[downLoadIndex].ToString();
                                     for (int t = 0; t < config.downloadIndex; t++) {
                                         match = match.Substring(match.IndexOf("\"") + 1);
@@ -120,8 +121,8 @@ namespace WebSearcher {
                             IRow row = sheet1.GetRow(i + 1);
                             int cellsCount = row.Cells.Count;
                             int columnsCount = sheet1.GetRow(0).Cells.Count;
-                            while ((cellsCount = row.Cells.Count) < columnsCount){
-                                row.CreateCell(cellsCount++,CellType.STRING).SetCellValue("1");
+                            while (cellsCount < columnsCount){
+                                row.CreateCell(cellsCount++,CellType.STRING).SetCellValue(" ");
                             }
                             row.Cells[GetColIndex(sheet1, "isIn")].SetCellValue(dt.Rows[i]["isIn"].ToString());
                             row.Cells[GetColIndex(sheet1, "matchTitle")].SetCellValue(dt.Rows[i]["matchTitle"].ToString());

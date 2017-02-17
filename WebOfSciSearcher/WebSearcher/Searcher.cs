@@ -41,7 +41,22 @@ namespace WebSearcher {
             CheckCol("rights");
             CheckCol("rightsUri");
             CheckCol("type");
-            CheckCol("downloadType");
+            CheckCol("download0");
+            CheckCol("download1");
+            CheckCol("download2");
+            CheckCol("download3");
+            CheckCol("download4");
+
+            //重复check一下
+            CheckCol("isIn");
+            CheckCol("matchTitle");
+            CheckCol("date_accessioned");
+            CheckCol("date_available");
+            CheckCol("date_issued");
+            CheckCol("language");
+            CheckCol("rights");
+            CheckCol("rightsUri");
+            CheckCol("type");
             CheckCol("download0");
             CheckCol("download1");
             CheckCol("download2");
